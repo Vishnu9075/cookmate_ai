@@ -1,0 +1,36 @@
+{
+  "recipe": {
+    "ingredients": [
+      "3 eggs",
+      "1 tablespoon of olive oil (or butter)",
+      "salt",
+      "pepper"
+    ],
+    "steps": [
+      {
+        "step_text": "Crack the eggs and mix them together",
+        "action": "mix",
+        "ingredients_involved": ["3 eggs"],
+        "duration_seconds": 20
+      },
+      {
+        "step_text": "Heat a pan over low heat and add olive oil",
+        "action": "heat",
+        "ingredients_involved": ["1 tablespoon of olive oil (or butter)"],
+        "duration_seconds": 60
+      },
+      {
+        "step_text": "Add the mixed eggs to the pan and cook",
+        "action": "cook",
+        "ingredients_involved": ["3 eggs"],
+        "duration_seconds": 150
+      },
+      {
+        "step_text": "Remove the eggs from heat and season with salt and pepper",
+        "action": "season",
+        "ingredients_involved": ["salt", "pepper"],
+        "duration_seconds": 0
+      }
+    ]
+  }
+}
