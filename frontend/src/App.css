@@ -1,0 +1,160 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: #1a1a1a;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.app-header nav {
+  margin-top: 0.5rem;
+}
+
+.app-header nav a {
+  margin-right: 1rem;
+  color: #646cff;
+  text-decoration: none;
+}
+
+.app-header nav a:hover {
+  color: #535bf2;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.app-footer {
+  background-color: #1a1a1a;
+  padding: 1rem 2rem;
+  border-top: 1px solid #333;
+  text-align: center;
+}
+
+.app-footer p {
+  margin: 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.home-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-page h2 {
+  margin-bottom: 1rem;
+}
+
+.home-page > p {
+  margin-bottom: 2rem;
+  color: #888;
+}
+
+.example-component {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.component-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.toggle-button {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+
+.component-content {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+}
+
+.component-content ul {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.component-content li {
+  margin-bottom: 0.5rem;
+  color: #888;
+}
+
+.api-test-section {
+  margin-top: 2rem;
+}
+
+.fetch-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fetch-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #ff000020;
+  border: 1px solid #ff0000;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.error-message p {
+  margin: 0;
+  color: #ff6b6b;
+}
+
+.data-display {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.data-display h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.data-display pre {
+  background-color: #0a0a0a;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  color: #61dafb;
+}
