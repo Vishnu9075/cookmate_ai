@@ -1,59 +1,22 @@
-import { useState, useEffect } from 'react'
-import ExampleComponent from '../components/ExampleComponent'
-import { getExampleData } from '../services/exampleService'
+import Header from '../components/header';
+import cookingBg from '../assets/cooking background.jpg';
 
 function Home() {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
-  const handleFetchData = async () => {
-    setLoading(true)
-    setError(null)
-    try {
-      const result = await getExampleData()
-      setData(result)
-    } catch (err) {
-      setError(err.message || 'Failed to fetch data')
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
-    <div className="home-page">
-      <h2>Welcome to CookMate AI</h2>
-      <p>A full-stack application with Python backend and React frontend.</p>
-      
-      <ExampleComponent 
-        title="API Integration Example"
-        description="Click the button below to test the backend API connection"
-      />
+    <div className="home-page relative">
+      <Header />
+      <div className="pt-5">
 
-      <div className="api-test-section">
-        <button 
-          onClick={handleFetchData} 
-          disabled={loading}
-          className="fetch-button"
+        <div
+          className="bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden 
+             w-[97%] h-[650px] mx-auto"
+          style={{ backgroundImage: `url(${cookingBg})` }}
         >
-          {loading ? 'Loading...' : 'Fetch Data from Backend'}
-        </button>
-
-        {error && (
-          <div className="error-message">
-            <p>Error: {error}</p>
-          </div>
-        )}
-
-        {data && (
-          <div className="data-display">
-            <h3>Response from Backend:</h3>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </div>
-        )}
+          <h1 className="text-5xl font-bold text-white text-center absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg">CookMate</h1>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
