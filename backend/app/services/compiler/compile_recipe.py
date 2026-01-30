@@ -25,7 +25,7 @@ def Compile_recipe_from_text(raw_text: str,
 
     lines = [ln.strip() for ln in cleaned.splitlines() if ln.strip()]
     if len(lines) >= 2:
-        step_text = lines
+        step_texts = lines
     else:
 
          # fallback: split by period
