@@ -29,7 +29,7 @@ def compile_recipe(req: CompileRequest):
     
     # Store is in app.main global for MVP
 
-    from app.main import RECIPE_STORE, new_id
+    from app.state import RECIPE_STORE, new_id
 
     recipe_id = new_id("rcp")
     RECIPE_STORE[recipe_id] = recipe

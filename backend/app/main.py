@@ -3,24 +3,31 @@ from datetime import datetime, timezone
 from typing import Dict
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import asyncio
+from contextlib import asynccontextmanager
+from app.state import TIMER_STORE
 
 from app.core.config import settings
 from app.api.routes import api_router
 from app.schemas.recipie_spec import RecipeSpec
 from app.schemas.session import CookingSession
+from app.schemas.timer import Timer
+from app.services.timers.scheduler import timer_scheduler_loop
 
-RECIPE_STORE: Dict[str, RecipeSpec] = {}
-SESSION_STORE:Dict[str, CookingSession]={}
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # startup
+    task = asyncio.create_task(timer_scheduler_loop(TIMER_STORE, interval_seconds=2))
+    yield
+    # shutdown
+    task.cancel()
 
 
-def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
 
-def new_id(prefix:str) -> str:
-    t = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")
-    return f"{prefix}_{t}"
 
 app = FastAPI(title="Cookmate MVP API")
+
+
 
 app.add_middleware(
     CORSMiddleware,

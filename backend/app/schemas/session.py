@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Literal, Optional
 from pydantic import BaseModel, Field, ConfigDict
-
+from app.schemas.timer import Timer
 
 SessionStatus = Literal["NOT_STARTED", "COOKING", "PAUSED","FINISHED"]
 
@@ -20,3 +20,4 @@ class SessionView(BaseModel):
     session: CookingSession
     current_step_instruction:str
     total_steps:int
+    timers: list[Timer] = Field(default_factory=list)

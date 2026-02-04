@@ -20,6 +20,6 @@ class StartTimerRequest(BaseModel):
     seconds: int = Field(..., ge=1)
     label: Optional[str] = None
 
-class CancleTimerRequest(BaseModel):
+class CancelTimerRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     timer_id: str

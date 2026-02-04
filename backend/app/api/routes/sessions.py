@@ -11,7 +11,7 @@ class CreateSessionRequest(BaseModel):
 
 @router.post("", response_model= CookingSession)
 def create_session(req: CreateSessionRequest):
-    from app.main import RECIPE_STORE, SESSION_STORE, new_id, now_iso
+    from app.state import RECIPE_STORE, SESSION_STORE, new_id, now_iso
 
     if req.recipe_id not in RECIPE_STORE:
         raise HTTPException(status_code= 404, detail="recipe_id not found")
@@ -32,7 +32,7 @@ def create_session(req: CreateSessionRequest):
 
 @router.get("/{session_id}", response_model=SessionView)
 def get_session(session_id: str):
-    from app.main import RECIPE_STORE, SESSION_STORE
+    from app.state import RECIPE_STORE, SESSION_STORE
 
     session = SESSION_STORE(session_id)
     if not session:
