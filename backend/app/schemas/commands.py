@@ -3,7 +3,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field, ConfigDict
 
 
-CommandType = Literal["START", "NEXT_STEP", "PREV_STEP","REPEAT_STEP","GO_TO_STEP",]
+CommandType = Literal["START", "NEXT_STEP", "PREV_STEP","REPEAT_STEP","GO_TO_STEP", "PAUSE", "RESUME"]
 
 
 class SessionCommand(BaseModel):

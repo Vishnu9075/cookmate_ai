@@ -14,6 +14,8 @@ class Timer(BaseModel):
     started_at: str
     ends_at: str
     status: TimerStatus = "RUNNING"
+    paused_at: Optional[str] = None
+    remaining_seconds: Optional[int] = None
 
 class StartTimerRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")

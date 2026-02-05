@@ -11,7 +11,8 @@ async def timer_scheduler_loop(timer_store: dict, interval_seconds: int=2):
     while True:
         try:
             for tid, t in list(timer_store.items()):
-                timer_store[tid] = mark_done_if_expired(t)
+                if t.status == "RUNNING":
+                    timer_store[tid] = mark_done_if_expired(t)
 
         except Exception:
             #keep loop alive in MVP

@@ -57,6 +57,18 @@ def apply_command(session: CookingSession, recipe: RecipeSpec, cmd: SessionComma
         step = recipe.steps[s.current_step_index].instruction
         return EngineOutput(session=s, result=CommandResult(message="Moved to previous step.", speak = step))
     
+    if cmd.type == "PAUSE":
+        s = session.model_copy(deep=True)
+        s.status = "PAUSED"
+        s.updated_at = _now_iso()
+        return EngineOutput(session=s, result="PAUSED")
+
+    if cmd.type == "RESUME":
+        s = session.model_copy(deep=True)
+        s.status = "COOKING"
+        s.updated_at = _now_iso()
+        return EngineOutput(session=s, result="RESUMED")
+
 
     if cmd.type == "REPEAT_STEP":
         step = recipe.steps[s.current_step_index].instruction
