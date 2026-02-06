@@ -5,10 +5,12 @@ from typing import Dict
 from app.schemas.recipie_spec import RecipeSpec
 from app.schemas.session import CookingSession
 from app.schemas.timer import Timer
+from app.db.repo import get_session, save_timer, list_timers
 
-RECIPE_STORE: Dict[str, RecipeSpec] = {}
-SESSION_STORE: Dict[str, CookingSession] = {}
-TIMER_STORE: Dict[str, Timer] = {}
+get_session(...)
+save_timer(...)
+list_timers(...)
+
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()

@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 
 from app.services.compiler.compile_recipe import Compile_recipe_from_text, CompileError
 from app.schemas.recipie_spec import RecipeSpec
+from app.services.compiler import compile_recipe
 
 router = APIRouter()
 

@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: cookmate_postgres
+    environment:
+      POSTGRES_USER: cookmate
+      POSTGRES_PASSWORD: cookmate
+      POSTGRES_DB: cookmate
+    ports:
+      - "5432:5432"
+    volumes:
+      - cookmate_pgdata:/var/lib/postgresql/data
+volumes:
+  cookmate_pgdata:

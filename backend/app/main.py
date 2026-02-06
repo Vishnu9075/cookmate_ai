@@ -13,6 +13,8 @@ from app.schemas.recipie_spec import RecipeSpec
 from app.schemas.session import CookingSession
 from app.schemas.timer import Timer
 from app.services.timers.scheduler import timer_scheduler_loop
+from app.db.session import init_db
+from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -23,7 +25,10 @@ async def lifespan(app: FastAPI):
     task.cancel()
 
 
-
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db
+    yield
 
 app = FastAPI(title="Cookmate MVP API")
 
